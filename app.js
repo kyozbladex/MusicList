@@ -1,3 +1,4 @@
+const appConfig = require('./config.js');
 const createError = require('http-errors');
 const express = require('express');
 const favicon = require("serve-favicon");
@@ -13,7 +14,7 @@ const api = require('./routes/api/index');
 const users = require('./routes/api/users');
 const LocalStrategy = require('passport-local').Strategy;
 const expressSession = require('express-session')({
-                        secret: 'any random string can go here',
+                        secret: appConfig.expressSession.secret,
                         resave: false,
                         saveUninitialized: false
                       });
